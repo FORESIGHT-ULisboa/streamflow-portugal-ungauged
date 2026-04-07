@@ -1,4 +1,4 @@
-# streamflow-portugal-ungauged
+# Using Temporal Fusion Transformers to predict streamflow in natural ungauged catchments
 
 Supplementary material (figures, tables, data and code) for the research paper on
 **streamflow prediction at ungauged basins in mainland Portugal**.
