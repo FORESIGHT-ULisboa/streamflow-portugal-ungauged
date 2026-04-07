@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supplementary Material — Streamflow Prediction at Ungauged Basins in Portugal</title>
+  <meta name="description" content="Supplementary material (figures, tables, data and code) for the research paper on streamflow prediction at ungauged basins in mainland Portugal." />
+  <meta name="keywords" content="streamflow, ungauged basins, Portugal, hydrology, machine learning, regionalization" />
+  <meta property="og:title" content="Supplementary Material — Streamflow Prediction at Ungauged Basins in Portugal" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Google Fonts (Inter) loaded with display=swap for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ========== TOP BANNER ========== -->
+<div class="site-banner">
+  <div class="container">
+    <span>🔬</span>
+    <span>Research paper supplementary material &mdash;
+      <a href="https://www.ul.pt" target="_blank" rel="noopener">Universidade de Lisboa</a> &bull;
+      <a href="https://foresight.ulisboa.pt" target="_blank" rel="noopener">FORESIGHT Research Group</a>
+    </span>
+  </div>
+</div>
+
+<!-- ========== STICKY NAV ========== -->
+<nav class="site-nav" aria-label="Page sections">
+  <div class="container">
+    <a href="#abstract">Abstract</a>
+    <a href="#authors">Authors</a>
+    <a href="#methods">Methods</a>
+    <a href="#figures">Figures</a>
+    <a href="#tables">Tables</a>
+    <a href="#data">Data</a>
+    <a href="#code">Code</a>
+    <a href="#citation">Citation</a>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero" id="top">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-main">
+        <div class="hero-badge">📄 Supplementary Material</div>
+        <h1>Streamflow Prediction at Ungauged Basins in Mainland Portugal</h1>
+        <p class="subtitle">
+          A data-driven regionalization framework combining catchment descriptors with
+          machine learning for robust streamflow estimation across ungauged sites.
+        </p>
+        <div class="meta">
+          <span class="meta-tag">🌊 Hydrology</span>
+          <span class="meta-tag">🤖 Machine Learning</span>
+          <span class="meta-tag">🇵🇹 Portugal</span>
+          <span class="meta-tag">📊 Regionalization</span>
+          <span class="meta-tag">🏔️ Ungauged Basins</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#figures">
+            🖼️ View Figures
+          </a>
+          <a class="btn btn-outline" href="#data">
+            📦 Access Data
+          </a>
+          <a class="btn btn-outline" href="#code">
+            💻 View Code
+          </a>
+        </div>
+        <p class="hero-doi">
+          <strong>DOI:</strong> <em>to be assigned upon publication</em> &nbsp;|&nbsp;
+          <strong>Status:</strong> Under review
+        </p>
+      </div>
+      <aside class="hero-aside">
+        <h4>At a glance</h4>
+        <ul>
+          <li><strong>~650</strong> gauged catchments</li>
+          <li><strong>30+</strong> catchment descriptors</li>
+          <li><strong>1950–2020</strong> study period</li>
+          <li><strong>Multiple</strong> ML algorithms</li>
+          <li><strong>Leave-one-out</strong> cross-validation</li>
+          <li><strong>Mainland</strong> Portugal</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- ========== ABSTRACT ========== -->
+<section class="section section-alt" id="abstract">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <h2 class="section-title">Abstract</h2>
+    </div>
+    <div class="abstract-box">
+      <p>
+        Accurate streamflow estimation at ungauged basins is one of the most pressing
+        challenges in operational hydrology. For mainland Portugal — a region with marked
+        hydroclimatic gradients, high inter-annual variability and a significant fraction
+        of ephemeral streams — the reliable quantification of streamflow at sites with
+        no direct observations has important implications for water resources planning,
+        flood risk assessment and ecological management.
+      </p>
+      <p>
+        This study presents a comprehensive regionalization framework that links
+        hydrological response signatures (mean annual runoff, flow duration curve
+        indices, low-flow and high-flow quantiles) to physiographic, climatic and
+        land-use catchment descriptors through several machine learning algorithms.
+        We evaluate model performance using a rigorous leave-one-out cross-validation
+        scheme across a network of approximately 650 gauged catchments, and we quantify
+        the relative importance of individual predictors. Spatial maps of predicted
+        streamflow statistics for ungauged locations are produced for the full mainland
+        Portuguese territory.
+      </p>
+      <p>
+        Results show that gradient-boosted trees and random forests achieve the highest
+        accuracy across most target variables, substantially outperforming classical
+        multiple-regression approaches. Climatic descriptors — particularly mean annual
+        precipitation and potential evapotranspiration — are the dominant predictors,
+        while soil and geology features gain importance for low-flow estimation.
+        The supplementary material provided on this page includes all figures, tables,
+        and datasets referenced in the paper.
+      </p>
+      <div class="keywords">
+        <strong>Keywords:</strong>
+        <span class="tag">streamflow prediction</span>
+        <span class="tag">ungauged basins</span>
+        <span class="tag">Portugal</span>
+        <span class="tag">regionalization</span>
+        <span class="tag">machine learning</span>
+        <span class="tag">random forest</span>
+        <span class="tag">gradient boosting</span>
+        <span class="tag">flow duration curve</span>
+        <span class="tag">catchment descriptors</span>
+        <span class="tag">PUB</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AUTHORS ========== -->
+<section class="section" id="authors">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">👥</div>
+      <h2 class="section-title">Authors</h2>
+    </div>
+    <div class="authors-grid">
+      <div class="author-card">
+        <div class="name">Author Name</div>
+        <div class="role">Corresponding author</div>
+        <div class="affil">
+          Instituto Dom Luiz (IDL) &amp; Faculdade de Ciências,
+          Universidade de Lisboa, Portugal
+        </div>
+        <div class="links">
+          <a href="#" title="ORCID profile">ORCID</a>
+          <a href="#" title="Personal page">Web</a>
+        </div>
+      </div>
+      <div class="author-card">
+        <div class="name">Co-Author Name</div>
+        <div class="role">Co-author</div>
+        <div class="affil">
+          FORESIGHT Research Group,
+          Universidade de Lisboa, Portugal
+        </div>
+        <div class="links">
+          <a href="#" title="ORCID profile">ORCID</a>
+        </div>
+      </div>
+      <div class="author-card">
+        <div class="name">Co-Author Name</div>
+        <div class="role">Co-author</div>
+        <div class="affil">
+          Instituto Superior Técnico (IST),
+          Universidade de Lisboa, Portugal
+        </div>
+        <div class="links">
+          <a href="#" title="ORCID profile">ORCID</a>
+        </div>
+      </div>
+      <div class="author-card">
+        <div class="name">Senior Author Name</div>
+        <div class="role">Senior author</div>
+        <div class="affil">
+          Instituto Dom Luiz (IDL) &amp; Faculdade de Ciências,
+          Universidade de Lisboa, Portugal
+        </div>
+        <div class="links">
+          <a href="#" title="ORCID profile">ORCID</a>
+          <a href="#" title="Personal page">Web</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== METHODS OVERVIEW ========== -->
+<section class="section section-alt" id="methods">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">⚙️</div>
+      <h2 class="section-title">Methods Overview</h2>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="value">~650</div>
+        <div class="label">Gauged catchments</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">30+</div>
+        <div class="label">Catchment descriptors</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">70 yr</div>
+        <div class="label">Study period</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">12</div>
+        <div class="label">Target signatures</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">5</div>
+        <div class="label">ML algorithms</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">LOO</div>
+        <div class="label">Cross-validation</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-content">
+          <h3>Data Collection &amp; Preprocessing</h3>
+          <p>
+            Daily streamflow records from the Portuguese National Water Resources
+            Information System (SNIRH) were quality-controlled and gap-filled.
+            Catchment boundaries were delineated using a 25 m digital elevation model.
+            More than 30 physiographic, climatic and land-use descriptors were
+            extracted for each gauged catchment.
+          </p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-content">
+          <h3>Signature Computation</h3>
+          <p>
+            Twelve streamflow signatures were computed for each gauged station,
+            including mean annual runoff, flow duration curve percentiles (Q5, Q50,
+            Q95), baseflow index, flashiness index and seasonal runoff ratios.
+            Signatures summarize the characteristic behaviour of each catchment.
+          </p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-content">
+          <h3>Machine Learning Regionalization</h3>
+          <p>
+            Five algorithms — multiple linear regression, regression trees, random
+            forests, gradient-boosted trees and support vector regression — were
+            trained to predict each signature from catchment descriptors.
+            Hyperparameter tuning was performed via nested cross-validation.
+          </p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-content">
+          <h3>Evaluation &amp; Uncertainty</h3>
+          <p>
+            Model performance was evaluated using leave-one-out cross-validation.
+            Nash–Sutcliffe efficiency, relative bias and RMSE were computed for each
+            signature and algorithm. Prediction intervals were estimated using
+            quantile regression forests.
+          </p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">5</div>
+        <div class="timeline-content">
+          <h3>Spatial Mapping</h3>
+          <p>
+            The best-performing model for each signature was applied to predict
+            streamflow statistics at all ungauged locations across mainland Portugal
+            using a 1 km² gridded catchment-descriptor dataset, producing
+            continuous spatial maps of streamflow regimes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SUPPLEMENTARY FIGURES ========== -->
+<section class="section" id="figures">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">🖼️</div>
+      <h2 class="section-title">Supplementary Figures</h2>
+    </div>
+    <p class="text-muted mt-1" style="margin-bottom:1.5rem;">
+      All figures are available in high resolution (PDF and PNG). Click a figure card to
+      download or expand.
+    </p>
+    <div class="figures-grid">
+
+      <div class="figure-card">
+        <div class="figure-img">
+          <div class="fig-placeholder">
+            <span>🗺️</span>
+            <span>Study area map</span>
+          </div>
+        </div>
+        <div class="figure-body">
+          <div class="fig-id">Figure S1</div>
+          <div class="fig-caption">
+            Spatial distribution of the ~650 gauged catchments used in the analysis,
+            overlaid on mean annual precipitation (1981–2010 climatology).
+            Catchment boundaries are delineated from the national 25 m DEM.
+          </div>
+          <div class="fig-links">
+            <a href="figures/fig_s1.pdf" download>↓ PDF</a>
+            <a href="figures/fig_s1.png" download>↓ PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="figure-card">
+        <div class="figure-img">
+          <div class="fig-placeholder">
+            <span>📉</span>
+            <span>Flow duration curves</span>
+          </div>
+        </div>
+        <div class="figure-body">
+          <div class="fig-id">Figure S2</div>
+          <div class="fig-caption">
+            Observed (solid) vs. predicted (dashed) flow duration curves for
+            10 representative catchments spanning the range of hydroclimatic
+            conditions in mainland Portugal.
+          </div>
+          <div class="fig-links">
+            <a href="figures/fig_s2.pdf" download>↓ PDF</a>
+            <a href="figures/fig_s2.png" download>↓ PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="figure-card">
+        <div class="figure-img">
+          <div class="fig-placeholder">
+            <span>📊</span>
+            <span>Model performance</span>
+          </div>
+        </div>
+        <div class="figure-body">
+          <div class="fig-id">Figure S3</div>
+          <div class="fig-caption">
+            Box plots of Nash–Sutcliffe efficiency (NSE) for all five algorithms
+            and twelve streamflow signatures obtained by leave-one-out
+            cross-validation.
+          </div>
+          <div class="fig-links">
+            <a href="figures/fig_s3.pdf" download>↓ PDF</a>
+            <a href="figures/fig_s3.png" download>↓ PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="figure-card">
+        <div class="figure-img">
+          <div class="fig-placeholder">
+            <span>🌳</span>
+            <span>Variable importance</span>
+          </div>
+        </div>
+        <div class="figure-body">
+          <div class="fig-id">Figure S4</div>
+          <div class="fig-caption">
+            Random-forest variable importance (mean decrease in impurity) for
+            mean annual runoff and the Q5, Q50 and Q95 flow duration curve indices.
+            Top-20 predictors shown.
+          </div>
+          <div class="fig-links">
+            <a href="figures/fig_s4.pdf" download>↓ PDF</a>
+            <a href="figures/fig_s4.png" download>↓ PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="figure-card">
+        <div class="figure-img">
+          <div class="fig-placeholder">
+            <span>🗺️</span>
+            <span>Spatial predictions</span>
+          </div>
+        </div>
+        <div class="figure-body">
+          <div class="fig-id">Figure S5</div>
+          <div class="fig-caption">
+            Spatial maps of predicted mean annual runoff (mm yr⁻¹) across
+            mainland Portugal at 1 km² resolution, with estimated 90 % prediction
+            intervals.
+          </div>
+          <div class="fig-links">
+            <a href="figures/fig_s5.pdf" download>↓ PDF</a>
+            <a href="figures/fig_s5.png" download>↓ PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="figure-card">
+        <div class="figure-img">
+          <div class="fig-placeholder">
+            <span>💧</span>
+            <span>Low-flow predictions</span>
+          </div>
+        </div>
+        <div class="figure-body">
+          <div class="fig-id">Figure S6</div>
+          <div class="fig-caption">
+            Spatial maps of predicted Q95 (low flow) and Q5 (high flow) indices
+            across mainland Portugal derived from the best-performing gradient-boosted
+            tree model.
+          </div>
+          <div class="fig-links">
+            <a href="figures/fig_s6.pdf" download>↓ PDF</a>
+            <a href="figures/fig_s6.png" download>↓ PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="figure-card">
+        <div class="figure-img">
+          <div class="fig-placeholder">
+            <span>🔄</span>
+            <span>Correlation matrix</span>
+          </div>
+        </div>
+        <div class="figure-body">
+          <div class="fig-id">Figure S7</div>
+          <div class="fig-caption">
+            Pearson correlation matrix among all 30+ catchment descriptors used
+            as predictors. Clustered heatmap reveals groupings of collinear
+            physiographic and climatic variables.
+          </div>
+          <div class="fig-links">
+            <a href="figures/fig_s7.pdf" download>↓ PDF</a>
+            <a href="figures/fig_s7.png" download>↓ PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="figure-card">
+        <div class="figure-img">
+          <div class="fig-placeholder">
+            <span>📈</span>
+            <span>Scatter plots</span>
+          </div>
+        </div>
+        <div class="figure-body">
+          <div class="fig-id">Figure S8</div>
+          <div class="fig-caption">
+            Observed vs. predicted scatter plots for mean annual runoff using
+            the best model (gradient-boosted trees), stratified by hydrological
+            region and catchment area class.
+          </div>
+          <div class="fig-links">
+            <a href="figures/fig_s8.pdf" download>↓ PDF</a>
+            <a href="figures/fig_s8.png" download>↓ PNG</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== SUPPLEMENTARY TABLES ========== -->
+<section class="section section-alt" id="tables">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <h2 class="section-title">Supplementary Tables</h2>
+    </div>
+    <div class="table-list">
+
+      <div class="table-item">
+        <div class="tbl-icon">📋</div>
+        <div class="tbl-info">
+          <div class="tbl-id">Table S1</div>
+          <div class="tbl-title">Catchment Descriptors</div>
+          <div class="tbl-desc">
+            Complete list of the 30+ catchment descriptors (physiographic, climatic and
+            land-use), including variable name, description, units and data source.
+          </div>
+        </div>
+        <div class="tbl-action">
+          <a href="tables/table_s1.csv" download>↓ Download CSV</a>
+        </div>
+      </div>
+
+      <div class="table-item">
+        <div class="tbl-icon">📋</div>
+        <div class="tbl-info">
+          <div class="tbl-id">Table S2</div>
+          <div class="tbl-title">Gauged Catchment Metadata</div>
+          <div class="tbl-desc">
+            Station IDs, coordinates, catchment area, record length and completeness
+            for all ~650 gauged catchments used in the analysis.
+          </div>
+        </div>
+        <div class="tbl-action">
+          <a href="tables/table_s2.csv" download>↓ Download CSV</a>
+        </div>
+      </div>
+
+      <div class="table-item">
+        <div class="tbl-icon">📋</div>
+        <div class="tbl-info">
+          <div class="tbl-id">Table S3</div>
+          <div class="tbl-title">Streamflow Signatures — Observed Values</div>
+          <div class="tbl-desc">
+            Observed streamflow signatures (mean annual runoff, Q5, Q10, Q50, Q90,
+            Q95, baseflow index, etc.) for all gauged catchments.
+          </div>
+        </div>
+        <div class="tbl-action">
+          <a href="tables/table_s3.csv" download>↓ Download CSV</a>
+        </div>
+      </div>
+
+      <div class="table-item">
+        <div class="tbl-icon">📋</div>
+        <div class="tbl-info">
+          <div class="tbl-id">Table S4</div>
+          <div class="tbl-title">Model Performance Summary</div>
+          <div class="tbl-desc">
+            NSE, RMSE and relative bias for each combination of ML algorithm and
+            streamflow signature under leave-one-out cross-validation.
+          </div>
+        </div>
+        <div class="tbl-action">
+          <a href="tables/table_s4.csv" download>↓ Download CSV</a>
+        </div>
+      </div>
+
+      <div class="table-item">
+        <div class="tbl-icon">📋</div>
+        <div class="tbl-info">
+          <div class="tbl-id">Table S5</div>
+          <div class="tbl-title">Optimal Hyperparameters</div>
+          <div class="tbl-desc">
+            Optimal hyperparameter values selected by nested cross-validation for
+            each algorithm and each streamflow signature.
+          </div>
+        </div>
+        <div class="tbl-action">
+          <a href="tables/table_s5.csv" download>↓ Download CSV</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== DATA ========== -->
+<section class="section" id="data">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">📦</div>
+      <h2 class="section-title">Data Availability</h2>
+    </div>
+    <p style="margin-bottom:1.5rem; color:var(--text-muted); font-size:0.95rem;">
+      All datasets and derived products associated with this study are described below.
+      Datasets that could not be shared directly are referenced with their original source.
+    </p>
+    <div class="resource-grid">
+
+      <div class="resource-card">
+        <div class="rc-icon">💧</div>
+        <span class="badge">Open Access</span>
+        <h3>Streamflow Records (SNIRH)</h3>
+        <p>Daily streamflow observations for all gauged stations used in this study,
+           sourced from Portugal's National Water Resources Information System.</p>
+        <a href="https://snirh.apambiente.pt" target="_blank" rel="noopener">
+          → Access SNIRH portal ↗
+        </a>
+      </div>
+
+      <div class="resource-card">
+        <div class="rc-icon">🏔️</div>
+        <span class="badge">Open Access</span>
+        <h3>Digital Elevation Model</h3>
+        <p>National 25 m DEM used for catchment delineation, provided by the
+           Portuguese Directorate-General of Territory (DGT).</p>
+        <a href="https://www.dgterritorio.gov.pt" target="_blank" rel="noopener">
+          → DGT data portal ↗
+        </a>
+      </div>
+
+      <div class="resource-card">
+        <div class="rc-icon">🌡️</div>
+        <span class="badge">Open Access</span>
+        <h3>ERA5 Climate Data</h3>
+        <p>Monthly precipitation, temperature and potential evapotranspiration
+           climatologies (1981–2010) derived from the ERA5 reanalysis product.</p>
+        <a href="https://cds.climate.copernicus.eu" target="_blank" rel="noopener">
+          → Copernicus Climate Data Store ↗
+        </a>
+      </div>
+
+      <div class="resource-card">
+        <div class="rc-icon">🌱</div>
+        <span class="badge">Open Access</span>
+        <h3>CORINE Land Cover</h3>
+        <p>Land-use / land-cover data (CLC 2018) used to compute vegetation and
+           imperviousness descriptors at catchment scale.</p>
+        <a href="https://land.copernicus.eu/pan-european/corine-land-cover" target="_blank" rel="noopener">
+          → Copernicus Land Service ↗
+        </a>
+      </div>
+
+      <div class="resource-card">
+        <div class="rc-icon">🗂️</div>
+        <span class="badge">This study</span>
+        <h3>Catchment Descriptor Dataset</h3>
+        <p>Compiled dataset of 30+ catchment descriptors for all ~650 gauged
+           catchments. Available as a CSV file (see Table S1 and S2).</p>
+        <a href="tables/table_s2.csv" download>
+          ↓ Download dataset
+        </a>
+      </div>
+
+      <div class="resource-card">
+        <div class="rc-icon">🗺️</div>
+        <span class="badge">This study</span>
+        <h3>Spatial Prediction Maps</h3>
+        <p>GeoTIFF rasters of predicted streamflow signatures at 1 km² resolution
+           for the full mainland Portuguese territory (available upon publication).</p>
+        <a href="#" aria-disabled="true" style="opacity:.5; cursor:default;">
+          ⏳ Available upon publication
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CODE ========== -->
+<section class="section section-alt" id="code">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">💻</div>
+      <h2 class="section-title">Code Availability</h2>
+    </div>
+    <p style="margin-bottom:1.5rem; color:var(--text-muted); font-size:0.95rem;">
+      All analysis code is written in Python and is available on GitHub under
+      an open-source licence.
+    </p>
+    <div class="resource-grid">
+
+      <div class="resource-card">
+        <div class="rc-icon">🐍</div>
+        <span class="badge">Python</span>
+        <h3>Analysis Codebase</h3>
+        <p>Full reproducible pipeline: data preprocessing, signature computation,
+           machine learning modelling, cross-validation and figure generation.</p>
+        <a href="https://github.com/FORESIGHT-ULisboa/streamflow-portugal-ungauged" target="_blank" rel="noopener">
+          → GitHub repository ↗
+        </a>
+      </div>
+
+      <div class="resource-card">
+        <div class="rc-icon">📓</div>
+        <span class="badge">Jupyter</span>
+        <h3>Analysis Notebooks</h3>
+        <p>Step-by-step Jupyter notebooks reproducing all figures and tables
+           in the paper and this supplementary material page.</p>
+        <a href="https://github.com/FORESIGHT-ULisboa/streamflow-portugal-ungauged/tree/main/notebooks" target="_blank" rel="noopener">
+          → View notebooks ↗
+        </a>
+      </div>
+
+      <div class="resource-card">
+        <div class="rc-icon">📦</div>
+        <span class="badge">pip</span>
+        <h3>Python Environment</h3>
+        <p>A <code>requirements.txt</code> (or <code>environment.yml</code>) is
+           provided to reproduce the exact Python environment used in the study.</p>
+        <a href="https://github.com/FORESIGHT-ULisboa/streamflow-portugal-ungauged/blob/main/requirements.txt" target="_blank" rel="noopener">
+          → requirements.txt ↗
+        </a>
+      </div>
+
+      <div class="resource-card">
+        <div class="rc-icon">⚖️</div>
+        <span class="badge">MIT Licence</span>
+        <h3>Licence</h3>
+        <p>The code is released under the MIT Licence. You are free to use,
+           modify and distribute it with attribution to the original authors.</p>
+        <a href="https://github.com/FORESIGHT-ULisboa/streamflow-portugal-ungauged/blob/main/LICENSE" target="_blank" rel="noopener">
+          → Read licence ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CITATION ========== -->
+<section class="section" id="citation">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">📖</div>
+      <h2 class="section-title">How to Cite</h2>
+    </div>
+    <p class="text-muted" style="margin-bottom:1.2rem;">
+      If you use the data, code or results from this study in your own work,
+      please cite the paper as follows:
+    </p>
+
+    <h3 style="margin-bottom:.6rem; color:var(--primary);">APA</h3>
+    <div class="citation-box" id="cit-apa">
+      <button class="copy-btn" onclick="copyText('cit-apa-text')">Copy</button>
+      <span id="cit-apa-text">
+        Author, A., Co-Author, B., &amp; Senior Author, C. (under review).
+        Streamflow prediction at ungauged basins in mainland Portugal using machine
+        learning regionalization. <em>Journal of Hydrology</em>.
+        https://doi.org/XXXXX
+      </span>
+    </div>
+
+    <h3 style="margin-top:1.5rem; margin-bottom:.6rem; color:var(--primary);">BibTeX</h3>
+    <div class="citation-box" id="cit-bib">
+      <button class="copy-btn" onclick="copyText('cit-bib-text')">Copy</button>
+      <pre id="cit-bib-text" style="white-space:pre-wrap;"><span class="citation-key">@article</span>{AuthorEtAl_Streamflow_Portugal,
+  <span class="citation-field">author</span>  = {<span class="citation-val">Author, A. and Co-Author, B. and Senior Author, C.</span>},
+  <span class="citation-field">title</span>   = {<span class="citation-val">Streamflow prediction at ungauged basins in mainland Portugal
+             using machine learning regionalization</span>},
+  <span class="citation-field">journal</span> = {<span class="citation-val">Journal of Hydrology</span>},
+  <span class="citation-field">year</span>    = {<span class="citation-val">under review</span>},
+  <span class="citation-field">doi</span>     = {<span class="citation-val">XXXXX</span>}
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>About</h4>
+        <p style="color:#7f8cab; font-size:0.83rem;">
+          Supplementary material for a research paper on streamflow prediction at
+          ungauged basins in mainland Portugal. Hosted on GitHub Pages.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#figures">Supplementary Figures</a></li>
+          <li><a href="#tables">Supplementary Tables</a></li>
+          <li><a href="#data">Data Availability</a></li>
+          <li><a href="#code">Code Availability</a></li>
+          <li><a href="#citation">Citation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Affiliations</h4>
+        <ul>
+          <li><a href="https://www.ul.pt" target="_blank" rel="noopener">Universidade de Lisboa</a></li>
+          <li><a href="https://foresight.ulisboa.pt" target="_blank" rel="noopener">FORESIGHT Research Group</a></li>
+          <li><a href="https://idl.campus.ciencias.ulisboa.pt" target="_blank" rel="noopener">Instituto Dom Luiz (IDL)</a></li>
+          <li><a href="https://snirh.apambiente.pt" target="_blank" rel="noopener">SNIRH — APAMBIENTE</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>
+        © 2024 FORESIGHT-ULisboa. Code released under
+        <a href="https://github.com/FORESIGHT-ULisboa/streamflow-portugal-ungauged/blob/main/LICENSE" target="_blank" rel="noopener">MIT Licence</a>.
+      </span>
+      <a href="https://github.com/FORESIGHT-ULisboa/streamflow-portugal-ungauged" target="_blank" rel="noopener">
+        🔗 GitHub Repository
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== JS ========== -->
+<script>
+  /* Active nav link on scroll */
+  (function () {
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const links    = document.querySelectorAll('.site-nav a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.site-nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  })();
+
+  /* Copy-to-clipboard helper */
+  function copyText(id) {
+    const el = document.getElementById(id);
+    const text = el.innerText || el.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = el.closest('.citation-box').querySelector('.copy-btn');
+      const orig = btn.textContent;
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => { btn.textContent = orig; }, 1800);
+    });
+  }
+</script>
+
+</body>
+</html>
