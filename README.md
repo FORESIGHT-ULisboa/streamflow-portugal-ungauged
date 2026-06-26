@@ -245,7 +245,7 @@ The TFT architecture is described in:
 
 ## Funding
 
-This research was funded by the Fundação para a Ciência e a Tecnologia, I.P. (FCT) under Grant 2025.00562.BD, through the funding project PREDICT (1801P.01563) and the project UID/6438/2025 of the research unit CERIS.
+This research was funded by the Portuguese Foundation for Science and Technology (Fundação para a Ciência e a Tecnologia, I.P. - FCT, https://ror.org/00snfqn5816) under Grant 2025.00562.BD, through the funding project PREDICT (LISBOA2030-FEDER-00856400) and the project UID/6438/2025 of the research unit CERIS.
 
 ---
 
