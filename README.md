@@ -1,7 +1,11 @@
+<p align="center">
+  <img src="images/foresight.png" alt="FORESIGHT" width="320">
+</p>
+
 
 # Streamflow Prediction in Natural Ungauged Catchments using Temporal Fusion Transformers
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](LICENSE)
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/)
 [![HESS](https://img.shields.io/badge/journal-HESS-green)](https://doi.org/XXXX)
 
