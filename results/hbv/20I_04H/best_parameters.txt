@@ -1,0 +1,21 @@
+Optimization Summary for Group: 20I/04H
+========================================
+Objective function value: NSE
+Best metric: 0.2837
+Total Iterations: 56
+Total Fun Evals: 1568
+Execution Time: 00:26:40
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 3.6460
+Ce: 0.5000
+Sumax: 148.1841
+Beta: 1.6977
+Pmax: 0.0001
+Tlag: 0.2232
+Kf: 0.2500
+Ks: 0.0476
+FM: 5.8700
+Pmult: 1.1966
+ETmult: 1.0015

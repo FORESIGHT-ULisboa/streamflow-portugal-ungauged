@@ -1,0 +1,21 @@
+Optimization Summary for Group: 31H/02H
+========================================
+Objective function value: NSE
+Best metric: 0.3967
+Total Iterations: 59
+Total Fun Evals: 1652
+Execution Time: 00:41:19
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 4.7639
+Ce: 0.5174
+Sumax: 310.8737
+Beta: 1.6702
+Pmax: 0.2252
+Tlag: 0.6559
+Kf: 0.2500
+Ks: 0.0502
+FM: 2.5423
+Pmult: 1.0855
+ETmult: 0.7784

@@ -1,0 +1,21 @@
+Optimization Summary for Group: 11L/01H
+========================================
+Objective function value: NSE
+Best metric: 0.2141
+Total Iterations: 82
+Total Fun Evals: 2296
+Execution Time: 00:36:51
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0001
+Ce: 1.5000
+Sumax: 25.0076
+Beta: 1.5010
+Pmax: 0.0000
+Tlag: 0.3362
+Kf: 0.2500
+Ks: 0.0867
+FM: 2.5363
+Pmult: 0.8180
+ETmult: 0.9153

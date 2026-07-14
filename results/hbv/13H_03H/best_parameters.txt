@@ -1,0 +1,21 @@
+Optimization Summary for Group: 13H/03H
+========================================
+Objective function value: NSE
+Best metric: 0.7316
+Total Iterations: 45
+Total Fun Evals: 1260
+Execution Time: 00:13:45
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 4.9948
+Ce: 1.0373
+Sumax: 218.1784
+Beta: 2.0698
+Pmax: 0.7838
+Tlag: 0.5533
+Kf: 0.1745
+Ks: 0.0605
+FM: 4.5379
+Pmult: 1.0616
+ETmult: 1.2949

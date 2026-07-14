@@ -1,0 +1,21 @@
+Optimization Summary for Group: 07L/02H
+========================================
+Objective function value: NSE
+Best metric: 0.6782
+Total Iterations: 58
+Total Fun Evals: 1624
+Execution Time: 00:19:32
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 4.9994
+Ce: 0.5000
+Sumax: 214.5269
+Beta: 3.9994
+Pmax: 0.4456
+Tlag: 0.7439
+Kf: 0.2499
+Ks: 0.0010
+FM: 5.1678
+Pmult: 0.8557
+ETmult: 0.8915

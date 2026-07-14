@@ -1,0 +1,21 @@
+Optimization Summary for Group: 15G/02H
+========================================
+Objective function value: NSE
+Best metric: 0.6391
+Total Iterations: 92
+Total Fun Evals: 2576
+Execution Time: 01:30:05
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 4.9808
+Ce: 0.5000
+Sumax: 399.9996
+Beta: 3.2609
+Pmax: 0.7908
+Tlag: 0.4910
+Kf: 0.1782
+Ks: 0.0010
+FM: 5.4471
+Pmult: 0.8749
+ETmult: 1.0597

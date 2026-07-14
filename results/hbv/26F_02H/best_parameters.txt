@@ -1,0 +1,21 @@
+Optimization Summary for Group: 26F/02H
+========================================
+Objective function value: NSE
+Best metric: 0.2397
+Total Iterations: 41
+Total Fun Evals: 1148
+Execution Time: 00:15:16
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0222
+Ce: 0.5001
+Sumax: 208.3585
+Beta: 2.6869
+Pmax: 0.0210
+Tlag: 0.2112
+Kf: 0.2500
+Ks: 0.0027
+FM: 5.0968
+Pmult: 0.8562
+ETmult: 1.1761

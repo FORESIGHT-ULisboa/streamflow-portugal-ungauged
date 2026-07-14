@@ -1,0 +1,21 @@
+Optimization Summary for Group: 18I/01H
+========================================
+Objective function value: NSE
+Best metric: 0.4805
+Total Iterations: 52
+Total Fun Evals: 1456
+Execution Time: 00:26:36
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0010
+Ce: 0.5001
+Sumax: 213.9222
+Beta: 2.1385
+Pmax: 0.8187
+Tlag: 0.3077
+Kf: 0.2500
+Ks: 0.0209
+FM: 5.1654
+Pmult: 0.8244
+ETmult: 0.7057

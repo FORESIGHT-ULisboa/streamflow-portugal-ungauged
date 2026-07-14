@@ -1,0 +1,21 @@
+Optimization Summary for Group: 08O/01H
+========================================
+Objective function value: NSE
+Best metric: 0.7323
+Total Iterations: 56
+Total Fun Evals: 1568
+Execution Time: 00:40:44
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 4.9860
+Ce: 0.5001
+Sumax: 242.6060
+Beta: 3.0459
+Pmax: 0.4054
+Tlag: 0.2282
+Kf: 0.2182
+Ks: 0.0551
+FM: 3.7023
+Pmult: 1.0614
+ETmult: 0.8680

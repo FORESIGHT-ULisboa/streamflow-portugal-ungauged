@@ -1,0 +1,21 @@
+Optimization Summary for Group: 29L/01H
+========================================
+Objective function value: NSE
+Best metric: 0.2077
+Total Iterations: 66
+Total Fun Evals: 1848
+Execution Time: 00:53:28
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0003
+Ce: 1.4997
+Sumax: 98.2614
+Beta: 1.5000
+Pmax: 0.0001
+Tlag: 0.4679
+Kf: 0.2500
+Ks: 0.0905
+FM: 5.6310
+Pmult: 1.0874
+ETmult: 1.0797

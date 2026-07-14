@@ -1,0 +1,21 @@
+Optimization Summary for Group: 16G/01H
+========================================
+Objective function value: NSE
+Best metric: 0.6283
+Total Iterations: 81
+Total Fun Evals: 2268
+Execution Time: 01:16:58
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0317
+Ce: 0.5000
+Sumax: 399.9873
+Beta: 3.6856
+Pmax: 0.9276
+Tlag: 0.6647
+Kf: 0.2269
+Ks: 0.0010
+FM: 1.6872
+Pmult: 1.1210
+ETmult: 1.0171

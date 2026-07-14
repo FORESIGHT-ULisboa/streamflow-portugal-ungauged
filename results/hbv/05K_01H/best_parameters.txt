@@ -1,0 +1,21 @@
+Optimization Summary for Group: 05K/01H
+========================================
+Objective function value: NSE
+Best metric: 0.5495
+Total Iterations: 55
+Total Fun Evals: 1540
+Execution Time: 00:49:00
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0221
+Ce: 1.5000
+Sumax: 338.5051
+Beta: 3.9992
+Pmax: 0.1792
+Tlag: 0.8874
+Kf: 0.2500
+Ks: 0.0561
+FM: 2.7693
+Pmult: 1.1895
+ETmult: 1.2170

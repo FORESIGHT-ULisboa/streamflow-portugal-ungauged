@@ -1,0 +1,21 @@
+Optimization Summary for Group: 28K/02H
+========================================
+Objective function value: NSE
+Best metric: 0.4426
+Total Iterations: 67
+Total Fun Evals: 1876
+Execution Time: 00:35:04
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 1.0398
+Ce: 0.9277
+Sumax: 69.7089
+Beta: 1.7925
+Pmax: 0.0000
+Tlag: 0.9777
+Kf: 0.2500
+Ks: 0.0077
+FM: 3.2252
+Pmult: 1.0686
+ETmult: 1.1019

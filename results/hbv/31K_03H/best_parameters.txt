@@ -1,0 +1,21 @@
+Optimization Summary for Group: 31K/03H
+========================================
+Objective function value: NSE
+Best metric: 0.1710
+Total Iterations: 76
+Total Fun Evals: 2128
+Execution Time: 00:36:17
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0599
+Ce: 1.4998
+Sumax: 70.5912
+Beta: 3.6063
+Pmax: 0.0001
+Tlag: 0.5838
+Kf: 0.2500
+Ks: 0.0011
+FM: 4.6038
+Pmult: 1.1962
+ETmult: 1.2831

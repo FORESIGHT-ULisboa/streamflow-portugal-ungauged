@@ -1,0 +1,21 @@
+Optimization Summary for Group: 13F/04H
+========================================
+Objective function value: NSE
+Best metric: 0.6055
+Total Iterations: 71
+Total Fun Evals: 1988
+Execution Time: 00:26:25
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0000
+Ce: 0.5181
+Sumax: 279.4594
+Beta: 1.6592
+Pmax: 1.6406
+Tlag: 0.9232
+Kf: 0.2500
+Ks: 0.0599
+FM: 2.9519
+Pmult: 0.8050
+ETmult: 0.9458

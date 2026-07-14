@@ -1,0 +1,21 @@
+Optimization Summary for Group: 17F/03H
+========================================
+Objective function value: NSE
+Best metric: 0.5597
+Total Iterations: 59
+Total Fun Evals: 1652
+Execution Time: 00:29:35
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0239
+Ce: 1.4999
+Sumax: 100.7291
+Beta: 1.9727
+Pmax: 0.5486
+Tlag: 0.8684
+Kf: 0.2499
+Ks: 0.0992
+FM: 1.1664
+Pmult: 1.0292
+ETmult: 1.2853

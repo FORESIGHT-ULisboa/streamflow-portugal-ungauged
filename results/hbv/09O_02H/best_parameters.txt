@@ -1,0 +1,21 @@
+Optimization Summary for Group: 09O/02H
+========================================
+Objective function value: NSE
+Best metric: 0.6740
+Total Iterations: 49
+Total Fun Evals: 1372
+Execution Time: 00:33:34
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0000
+Ce: 1.4999
+Sumax: 155.0988
+Beta: 3.9996
+Pmax: 0.3356
+Tlag: 0.8938
+Kf: 0.2499
+Ks: 0.0800
+FM: 3.6344
+Pmult: 1.1030
+ETmult: 1.0571

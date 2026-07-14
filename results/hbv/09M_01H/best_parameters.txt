@@ -1,0 +1,21 @@
+Optimization Summary for Group: 09M/01H
+========================================
+Objective function value: NSE
+Best metric: -9.0000
+Total Iterations: 1
+Total Fun Evals: 28
+Execution Time: 00:00:03
+Stop Reason: {'tolfun': 0.001, 'tolflatfitness': 0.001}
+========================================
+Best Parameters:
+Imax: 1.7735
+Ce: 1.1873
+Sumax: 212.1150
+Beta: 2.1481
+Pmax: 0.0713
+Tlag: 0.5259
+Kf: 0.0639
+Ks: 0.0366
+FM: 3.5744
+Pmult: 0.8001
+ETmult: 1.1153

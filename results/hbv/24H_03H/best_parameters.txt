@@ -1,0 +1,21 @@
+Optimization Summary for Group: 24H/03H
+========================================
+Objective function value: NSE
+Best metric: 0.4942
+Total Iterations: 63
+Total Fun Evals: 1764
+Execution Time: 00:56:09
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 4.9997
+Ce: 0.5001
+Sumax: 276.5093
+Beta: 1.9806
+Pmax: 0.0001
+Tlag: 0.9944
+Kf: 0.2500
+Ks: 0.0093
+FM: 4.8858
+Pmult: 1.1722
+ETmult: 1.1999

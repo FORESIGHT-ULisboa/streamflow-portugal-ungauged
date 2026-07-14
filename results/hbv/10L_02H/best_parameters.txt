@@ -1,0 +1,21 @@
+Optimization Summary for Group: 10L/02H
+========================================
+Objective function value: NSE
+Best metric: 0.4154
+Total Iterations: 59
+Total Fun Evals: 1652
+Execution Time: 00:26:38
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 4.9753
+Ce: 1.3855
+Sumax: 139.7739
+Beta: 3.9997
+Pmax: 0.6041
+Tlag: 0.7340
+Kf: 0.2500
+Ks: 0.0986
+FM: 3.1651
+Pmult: 0.9995
+ETmult: 0.7750

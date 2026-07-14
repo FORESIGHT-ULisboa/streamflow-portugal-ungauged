@@ -1,0 +1,21 @@
+Optimization Summary for Group: 30L/04H
+========================================
+Objective function value: NSE
+Best metric: 0.1524
+Total Iterations: 78
+Total Fun Evals: 2184
+Execution Time: 00:31:50
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 0.0024
+Ce: 1.4999
+Sumax: 63.7507
+Beta: 1.5001
+Pmax: 0.0002
+Tlag: 0.8397
+Kf: 0.2500
+Ks: 0.0911
+FM: 3.6278
+Pmult: 0.8152
+ETmult: 0.7589

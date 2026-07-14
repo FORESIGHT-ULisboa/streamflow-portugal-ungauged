@@ -1,0 +1,21 @@
+Optimization Summary for Group: 25G/04H
+========================================
+Objective function value: NSE
+Best metric: 0.3539
+Total Iterations: 35
+Total Fun Evals: 980
+Execution Time: 00:14:26
+Stop Reason: {'tolfun': 0.001}
+========================================
+Best Parameters:
+Imax: 2.5768
+Ce: 0.5883
+Sumax: 211.1831
+Beta: 2.6426
+Pmax: 0.0000
+Tlag: 0.2016
+Kf: 0.2500
+Ks: 0.0986
+FM: 4.3825
+Pmult: 0.9521
+ETmult: 1.1913
