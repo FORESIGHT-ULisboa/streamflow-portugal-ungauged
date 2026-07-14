@@ -28,12 +28,12 @@ Thumbs.db
 .idea/
 
 # Large data files — use Git LFS or external storage
-data/hydrological/*.csv
-data/meteorological/*.csv
-data/geomorphological/catchment_descriptors.csv
-!data/hydrological/README.md
-!data/meteorological/README.md
-!data/geomorphological/README.md
+#data/hydrological/*.csv
+#data/meteorological/*.csv
+#data/geomorphological/catchment_descriptors.csv
+#!data/hydrological/README.md
+#!data/meteorological/README.md
+#!data/geomorphological/README.md
 
 # Raw ERA5-Land NetCDF files (never commit)
 *.nc
