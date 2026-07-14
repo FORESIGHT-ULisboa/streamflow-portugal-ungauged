@@ -1,4 +1,4 @@
-﻿station;cluster;area;gravelius_index;centroid_lat;centroid_lon;mean_elev;main_land_use;annual_avg_tp;annual_avg_t2m
+﻿Group;cluster;area;gravelius_index;centroid_lat;centroid_lon;mean_elev;main_land_use;annual_avg_tp;annual_avg_t2m
 02G/01H;A;170.0800479;1.67766653;41.94035357;-8.392403893;957.4144;333;1228.599407;12.38664695
 03I/03H;A;11.09984773;1.431059195;41.76631819;-8.095293911;1064.7269;333;1417.040502;11.47292843
 03J/01H;A;103.128;1.652668802;41.83569074;-7.81479371;1064.6217;512;940.8990228;10.42438792

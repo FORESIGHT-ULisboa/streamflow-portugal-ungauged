@@ -12,7 +12,7 @@ All descriptors are compiled in **`catchment_descriptors.csv`** (one row per cat
 
 | Column | Type | Units | Source | Description |
 |---|---|---|---|---|
-| `station` | str | — | SNIRH | Station code (e.g., `03J/01H`) |
+| `Group` | str | — | SNIRH | Station code (e.g., `03J/01H`) |
 | `cluster` | str (A–D) | — | This study | Geographic cluster for leave-one-group-out CV |
 | `area` | float | km² | DEM-derived | Drainage area |
 | `gravelius_index` | float | — | Computed | Gravelius compactness index (perimeter / (2√(π·A))) |
