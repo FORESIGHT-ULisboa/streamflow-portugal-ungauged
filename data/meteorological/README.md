@@ -28,15 +28,14 @@ No additional quality-control procedures were applied to ERA5-Land, given its de
 
 ## File format
 
-One CSV file per station, named `<STATION_CODE>.csv` (e.g., `03J01H.csv`).
+One CSV file per station, named `<STATION_CODE>.csv` (e.g., `03J_01H.csv`).
 
 | Column | Units | Description |
 |---|---|---|
-| `date` | YYYY-MM-DD | Calendar date (local time) |
-| `precip_mm` | mm | Daily total precipitation |
-| `temp_mean_C` | °C | Daily mean 2 m air temperature |
-| `temp_max_C` | °C | Daily maximum 2 m air temperature (used by HBV for PET) |
-| `temp_min_C` | °C | Daily minimum 2 m air temperature (used by HBV for PET) |
+| `Event date` | YYYY-MM-DD | Calendar date (local time) |
+| `tp` | mm | Daily total precipitation |
+| `t2m` | °C | Daily mean 2 m air temperature |
+| `pet` | mm | Daily total potential evapotranspiration (for HBV model) |
 
 ## Static meteorological descriptors
 
