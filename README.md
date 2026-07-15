@@ -16,7 +16,6 @@
 This repository contains the full experimental pipeline — data, environment setup, model training, evaluation, and results — to reproduce all findings reported in the paper, including **ungauged prediction** (leave-one-group-out cross-validation) and **model specialization** (transfer-learning fine-tuning with limited local data). The HBV hydrological model calibrated for each catchment is included as a benchmark.
 
 > **New here? Start with the notebooks** in [`notebooks/`](notebooks/):  
-> [`00_data_overview`](notebooks/00_data_overview.ipynb) · [`01_hbv_benchmark`](notebooks/01_hbv_benchmark.ipynb) · [`02_tft_ungauged`](notebooks/02_tft_ungauged.ipynb) · [`03_tft_specialization`](notebooks/03_tft_specialization.ipynb) · [`04_performance_tables`](notebooks/04_performance_tables.ipynb) · [`05_dynamic_hydrographs`](notebooks/05_dynamic_hydrographs.ipynb)
 
 ---
 
@@ -35,14 +34,21 @@ This repository contains the full experimental pipeline — data, environment se
 
 ## Overview
 
-Streamflow prediction in ungauged basins remains one of the central challenges in operational hydrology. This work evaluates the ability of **Temporal Fusion Transformers (TFT, Lim et al., 2021)** to generalize hydrological knowledge across **53 unregulated catchments in mainland Portugal** under strictly ungauged conditions, and further explores how limited local observations can be used to specialize a pre-trained regional model.
+Streamflow prediction in ungauged catchments remains one of the central challenges in operational hydrology. This work evaluates the ability of **Temporal Fusion Transformers (TFT, Lim et al., 2021)** to generalize hydrological knowledge across **53 unregulated catchments in mainland Portugal** under strictly ungauged conditions, and further explores how limited local observations can be used to specialize a pre-trained regional model.
 
-Key results on the test subsets:
+Key results on the test subsets, for catchments in complete ungauged conditions (100% of the time series for testing), are summarized in the table below. The TFT model outperforms the HBV benchmark on the majority of catchments, despite HBV being calibrated with full local data and therefore representing an unfair upper-bound benchmark.
 
 | Model | Median NSE | Median KGE | Median CRPS (×10³ m³ s⁻¹ km⁻²) |
 |---|---|---|---|
 | HBV (individually calibrated — upper bound) | 0.46 | 0.44 | 5.51 |
 | **TFT Ungauged** | **0.50** | **0.48** | **3.75** |
+
+When limited local data is available, the TFT model can be specialized via transfer learning. The table below shows the median performance of the TFT model after specialization with 60% of data for training, 20% for validation, and 20% for testing. The TFT specialized model outperforms the ungauged TFT on all metrics. The showed results and metrics correpond to the 20% subset used for testing.
+
+| Model | Median NSE | Median KGE | Median CRPS (×10³ m³ s⁻¹ km⁻²) |
+|---|---|---|---|
+| HBV (individually calibrated — upper bound) | 0.48 | 0.40 | 5.16 |
+| **TFT Ungauged** | **0.48** | **0.44** | **3.59** |
 | **TFT Specialized** | **0.62** | **0.65** | **3.20** |
 
 > **Note:** HBV is calibrated with full local data and therefore represents an unfair, upper-bound benchmark for the ungauged TFT. Despite this, the TFT ungauged model performs comparably or better on the majority of catchments.
@@ -137,7 +143,7 @@ All data used in this study are publicly available. The sections below describe 
 | Minimum record | 10 years of daily data per catchment (not necessarily continuous) |
 | Quality control | Hydrological years containing anomalies were removed conservatively (see paper §3.2.1) |
 
-Raw files are stored in `data/hydrological/` as one CSV per catchment, named by station code (e.g., `03J01H.csv`). See [`data/hydrological/README.md`](data/hydrological/README.md) for the column schema and the quality-control log.
+Raw files are stored in `data/hydrological/` as one CSV per catchment, named by station code (e.g., `03J_01H.csv`). See [`data/hydrological/README.md`](data/hydrological/README.md) for the column schema and the quality-control log.
 
 Streamflow was normalized to specific streamflow (m³ s⁻¹ km⁻²) × 10³ to facilitate cross-catchment comparison and to prevent area-driven dominance during training (Eq. 2 in the paper).
 
@@ -254,6 +260,6 @@ This research was funded by the Portuguese Foundation for Science and Technology
 
 ## License
 
-[MIT](LICENSE) — see the file for details.
+[GPLv3](LICENSE) — see the file for details.
 
 The hydrological data originate from SNIRH (Portuguese Environment Agency) and are shared under their respective terms of use. The ERA5-Land dataset is provided by ECMWF under the [Copernicus licence](https://cds.climate.copernicus.eu/api/v2/terms/static/licence-to-use-copernicus-products.pdf). The CORINE Land Cover and Copernicus DEM data are distributed under open-access terms by the European Environment Agency and the European Space Agency, respectively.
