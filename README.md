@@ -6,16 +6,16 @@
 # Streamflow Prediction in Natural Ungauged Catchments using Temporal Fusion Transformers
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](LICENSE)
-[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/)
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/)
 [![HESS](https://img.shields.io/badge/journal-HESS-green)](https://doi.org/XXXX)
 
 **`streamflow-portugal-ungauged`** is the official code and data repository for the paper:
 
 > **Francisco, R. and Matos, J. P.** — *Streamflow prediction in natural ungauged catchments using Temporal Fusion Transformers*, Hydrology and Earth System Sciences (HESS), 2026.
 
-This repository contains the full experimental pipeline — data, environment setup, model training, evaluation, and results — to reproduce all findings reported in the paper, including **ungauged prediction** (leave-one-group-out cross-validation) and **model specialization** (transfer-learning fine-tuning with limited local data). The HBV hydrological model calibrated for each catchment is included as a benchmark.
+This repository contains the input data, conda environment, pre-computed model outputs — TFT predictions and metrics alongside the HBV benchmark — and a visualization notebook to inspect all findings reported in the paper, including **ungauged prediction** (leave-one-group-out cross-validation) and **model specialization** (transfer-learning fine-tuning with limited local data).
 
-> **New here? Start with the notebooks** in [`notebooks/`](notebooks/):  
+> **New here?** Start with [`notebooks/00_prediction_plots.ipynb`](notebooks/00_prediction_plots.ipynb) — an interactive comparison of TFT predictions, observations, and the HBV benchmark for any station.
 
 ---
 
@@ -25,9 +25,10 @@ This repository contains the full experimental pipeline — data, environment se
 - [Repository structure](#repository-structure)
 - [Installation](#installation)
 - [Data](#data)
-- [Running the experiments](#running-the-experiments)
 - [Results](#results)
+- [Visualizing predictions](#visualizing-predictions)
 - [Citation](#citation)
+- [Funding](#funding)
 - [License](#license)
 
 ---
@@ -59,32 +60,26 @@ When limited local data is available, the TFT model can be specialized via trans
 
 ```
 streamflow-portugal-ungauged/
-├── environment/
-│   └── environment.yml             # Conda environment (Python 3.10 + all dependencies)
 ├── data/
-│   ├── hydrological/               # Daily streamflow from SNIRH (53 catchments, 1980–2024)
-│   │   └── README.md               # Data provenance and quality-control description
-│   ├── meteorological/             # ERA5-Land precipitation and temperature (1980–2024)
-│   │   └── README.md
-│   └── geomorphological/           # Catchment descriptors (area, elevation, land use, …)
-│       └── README.md
+│   ├── hydrological/               # Daily streamflow from SNIRH — one CSV per catchment + README
+│   ├── meteorological/             # ERA5-Land daily precipitation and temperature — one CSV per catchment + README
+│   ├── geomorphological/           # catchment_descriptors.csv (area, elevation, land use, …) + README
+│   └── shapefile/                  # Catchment boundary polygons (catchments.shp)
 ├── notebooks/
-│   ├── 00_data_overview.ipynb      # Exploratory data analysis; catchment map; statistics
-│   ├── 01_hbv_benchmark.ipynb      # HBV calibration with CMA-ES; benchmark metrics
-│   ├── 02_tft_ungauged.ipynb       # Leave-one-group-out TFT training and evaluation
-│   ├── 03_tft_specialization.ipynb # Transfer-learning retraining with limited local data
-│   ├── 04_performance_tables.ipynb # Aggregate metric tables (NSE, KGE, CRPS, α, π_rel)
-│   └── 05_dynamic_hydrographs.ipynb# Interactive Plotly hydrographs (saved as .html)
+│   └── 00_prediction_plots.ipynb   # Interactive plots: TFT (ungauged/specialized) vs observations and HBV
 ├── results/
-│   ├── tables/
-│   │   ├── ungauged_metrics.csv    # Per-catchment metrics for TFT ungauged and HBV
-│   │   └── specialized_metrics.csv # Per-catchment metrics for TFT specialized
-│   └── hydrographs/                # Pre-generated interactive hydrograph .html files
-│       ├── ungauged/               # One .html per catchment (ungauged setting)
-│       └── specialized/            # One .html per catchment (after specialization)
+│   ├── hbv/
+│   │   ├── metrics/                # HBV NSE/KGE/CRPS — full record and test-split variants
+│   │   └── prediction/             # Calibration outputs, one subfolder per catchment + README
+│   ├── tft/
+│   │   ├── metrics/                # metrics_Q_A.xlsx per configuration (ungauged/specialization)
+│   │   └── prediction/             # Daily quantile predictions (ungauged/specialization)
+│   └── README.md                   # Full description of the results structure and file formats
+├── images/
+├── environment.yml                 # Conda environment (Python 3.8, PyTorch + CUDA 11.8, full stack)
 ├── AGENTS.md                       # Conventions for AI coding agents
 ├── CLAUDE.md                       # → points to AGENTS.md
-├── LICENSE
+├── LICENSE                         # GNU GPL v3
 └── README.md
 ```
 
@@ -101,26 +96,18 @@ cd streamflow-portugal-ungauged
 
 ### 2 · Create the conda environment
 
-All dependencies — PyTorch, PyTorch Forecasting, eWaterCycle/HBV, xarray, and the full scientific stack — are declared in [`environment/environment.yml`](environment/environment.yml).
+All dependencies — PyTorch, PyTorch Forecasting, CMA-ES, xarray/GDAL, and the full scientific stack — are declared in [`environment.yml`](environment.yml). The environment is named `environment`.
 
 ```bash
-conda env create -f environment/environment.yml
-conda activate streamflow_portugal_ungauged
+conda env create -f environment.yml
+conda activate environment
 ```
 
-> **GPU support:** by default the environment installs CPU-only PyTorch. To use a GPU, remove the `cpuonly` line from `environment.yml` and replace it with the appropriate `pytorch-cuda` package for your driver version (see [pytorch.org](https://pytorch.org/get-started/locally/)).
+> **GPU support:** the environment installs CUDA 11.8-enabled PyTorch by default. On a CPU-only machine, remove the `cuda`, `cudatoolkit`, and `pytorch-cuda` entries from `environment.yml` before creating the environment (see [pytorch.org](https://pytorch.org/get-started/locally/) for alternatives matching your setup).
 
-### 3 · Register the Jupyter kernel
+### 3 · Open the notebook
 
-```bash
-python -m ipykernel install --user \
-    --name streamflow_portugal_ungauged \
-    --display-name "streamflow_portugal_ungauged"
-```
-
-### 4 · Open the notebooks
-
-Open directly in VS Code and select the **streamflow_portugal_ungauged** kernel, or launch JupyterLab:
+Open [`notebooks/00_prediction_plots.ipynb`](notebooks/00_prediction_plots.ipynb) directly in VS Code and select the `environment` kernel, or launch JupyterLab:
 
 ```bash
 jupyter lab notebooks/
@@ -173,52 +160,34 @@ Processed files are stored in `data/meteorological/` as one CSV per catchment. S
 
 All descriptors are compiled in `data/geomorphological/catchment_descriptors.csv`. See [`data/geomorphological/README.md`](data/geomorphological/README.md).
 
----
+### Catchment boundaries
 
-## Running the experiments
-
-After installation and data preparation, the experiments can be reproduced in order via the notebooks:
-
-| Notebook | Description | Estimated runtime |
-|---|---|---|
-| `00_data_overview` | Data exploration, cluster map, flow duration curves | < 5 min |
-| `01_hbv_benchmark` | HBV calibration (CMA-ES, 4 000 evaluations per catchment) | ~6 h (CPU) |
-| `02_tft_ungauged` | Leave-one-group-out TFT training (14 configurations × 10 runs) | ~12 h (GPU) / ~48 h (CPU) |
-| `03_tft_specialization` | Specialization retraining (6 data fractions × 10 runs × 46 catchments) | ~8 h (GPU) |
-| `04_performance_tables` | Aggregate NSE / KGE / CRPS / α / π_rel tables and figures | < 5 min |
-| `05_dynamic_hydrographs` | Interactive Plotly hydrographs exported as `.html` | < 10 min |
-
-Pre-computed results for all experiments are available in [`results/`](results/) so you can run notebooks `04` and `05` directly without re-training.
+The delineated catchment polygons used for the spatial aggregation of ERA5-Land and for the map figures are provided as a shapefile in [`data/shapefile/`](data/shapefile/) (`catchments.shp`, WGS84).
 
 ---
 
 ## Results
 
-### Performance tables
+All model outputs and performance metrics are pre-computed and included in [`results/`](results/) — no retraining is needed to inspect or reuse the paper's findings. See [`results/README.md`](results/README.md) for the complete description of the folder layout, file formats, and naming conventions.
 
-Aggregate metrics for the test subsets are available as CSV files in [`results/tables/`](results/tables/):
-
-- [`ungauged_metrics.csv`](results/tables/ungauged_metrics.csv) — NSE, KGE, CRPS, α, π_rel for every catchment under the TFT ungauged and HBV configurations.
-- [`specialized_metrics.csv`](results/tables/specialized_metrics.csv) — same metrics for TFT specialized at multiple data fractions (0%, 1%, 5%, 20%, 30%, 40%, 50%, 60%).
-
-Column schema for both files:
-
-| Column | Description |
+| Folder | Contents |
 |---|---|
-| `station` | SNIRH station code |
-| `model` | `HBV`, `TFT_ungauged`, or `TFT_specialized` |
-| `training_fraction` | Fraction of local data used for specialization (NaN for ungauged/HBV) |
-| `NSE` | Nash–Sutcliffe efficiency |
-| `KGE` | Kling–Gupta efficiency |
-| `CRPS` | Continuous ranked probability score (×10³ m³ s⁻¹ km⁻²) |
-| `alpha` | Reliability (α) |
-| `pi_rel` | Relative resolution (π_rel) |
+| [`results/hbv/prediction/`](results/hbv/prediction/) | HBV calibration outputs per catchment (simulation, optimal forcing, best parameters) — detailed in its own [README](results/hbv/prediction/README.md) |
+| [`results/hbv/metrics/`](results/hbv/metrics/) | HBV NSE, KGE, and CRPS per station — over the full record (ungauged comparison) and over the 20 % test split (specialization comparison) |
+| [`results/tft/metrics/`](results/tft/metrics/) | TFT `metrics_Q_A.xlsx` files — one per configuration (ungauged) and one per configuration × station × retraining version (specialization) |
+| [`results/tft/prediction/`](results/tft/prediction/) | Daily TFT quantile predictions (0.01–0.99) with observations and split labels, one CSV per station |
 
-### Dynamic hydrographs
+Key conventions (full details in [`results/README.md`](results/README.md)):
 
-Pre-generated interactive hydrographs (Plotly `.html`) are stored in [`results/hydrographs/`](results/hydrographs/). Each file contains the observed streamflow, the TFT median prediction, the full quantile envelope (1–99%, 5–95%, 10–90%, 25–75%, 40–60%), and the HBV deterministic prediction. Open any `.html` file directly in a browser — no server required.
+- Station codes follow SNIRH with the slash replaced by an underscore in file names (`03J/01H` → `03J_01H`).
+- All `metrics_Q_A.xlsx` files retain only the **leadtime = 3 days** columns.
+- Streamflow is expressed as specific streamflow: q = Q / A × 10³, in 10⁻³ m³ s⁻¹ km⁻².
 
-To regenerate or customise the hydrographs, run [`05_dynamic_hydrographs.ipynb`](notebooks/05_dynamic_hydrographs.ipynb).
+---
+
+## Visualizing predictions
+
+The notebook [`00_prediction_plots.ipynb`](notebooks/00_prediction_plots.ipynb) builds interactive plots of the TFT streamflow predictions against observations and the HBV benchmark for any station. Choose the **experiment** (`ungauged` or `specialized`) and the **station** (SNIRH code) in the notebook, and it renders the observed series, the TFT median prediction with its quantile envelope, and the HBV deterministic simulation from the pre-computed files in [`results/`](results/).
 
 ---
 
@@ -254,12 +223,12 @@ The TFT architecture is described in:
 
 ## Funding
 
-This research was funded by the Portuguese Foundation for Science and Technology (Fundação para a Ciência e a Tecnologia, I.P. - FCT, https://ror.org/00snfqn5816) under Grant 2025.00562.BD, through the funding project PREDICT (LISBOA2030-FEDER-00856400) and the project UID/6438/2025 of the research unit CERIS.
+This research was funded by the Portuguese Foundation for Science and Technology (Fundação para a Ciência e a Tecnologia, I.P. - FCT, https://ror.org/00snfqn5816) under Grant 2025.00562.BD with DOI identifier https://doi.org/10.54499/2025.00562.BD, through the funding project PREDICT (LISBOA2030-FEDER-00856400) and the project UID/6438/2025 of the research unit CERIS.
 
 ---
 
 ## License
 
-[GPLv3](LICENSE) — see the file for details.
+This repository is licensed under the **[GNU General Public License v3.0](LICENSE)** — you are free to use, modify, and redistribute the code, provided derivative works remain under the same license. See the [LICENSE](LICENSE) file for the full terms.
 
 The hydrological data originate from SNIRH (Portuguese Environment Agency) and are shared under their respective terms of use. The ERA5-Land dataset is provided by ECMWF under the [Copernicus licence](https://cds.climate.copernicus.eu/api/v2/terms/static/licence-to-use-copernicus-products.pdf). The CORINE Land Cover and Copernicus DEM data are distributed under open-access terms by the European Environment Agency and the European Space Agency, respectively.
