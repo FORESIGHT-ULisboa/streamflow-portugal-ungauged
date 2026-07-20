@@ -7,15 +7,12 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](LICENSE)
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/)
-[![HESS](https://img.shields.io/badge/journal-HESS-green)](https://doi.org/XXXX)
 
 **`streamflow-portugal-ungauged`** is the official code and data repository for the paper:
 
-> **Francisco, R. and Matos, J. P.** — *Streamflow prediction in natural ungauged catchments using Temporal Fusion Transformers*, Hydrology and Earth System Sciences (HESS), 2026.
+> **Francisco, R. and Matos, J. P.** — *Streamflow prediction in natural ungauged catchments using Temporal Fusion Transformers*, 2026
 
 This repository contains the input data, conda environment, pre-computed model outputs — TFT predictions and metrics alongside the HBV benchmark — and a visualization notebook to inspect all findings reported in the paper, including **ungauged prediction** (leave-one-group-out cross-validation) and **model specialization** (transfer-learning fine-tuning with limited local data).
-
-> **New here?** Start with [`notebooks/00_prediction_plots.ipynb`](notebooks/00_prediction_plots.ipynb) — an interactive comparison of TFT predictions, observations, and the HBV benchmark for any station.
 
 ---
 
@@ -199,8 +196,8 @@ If you use this code or data in your work, please cite:
 @article{francisco2026tft_ungauged,
   author  = {Francisco, Rafael and Matos, Jos{\'e} Pedro},
   title   = {Streamflow prediction in natural ungauged catchments using Temporal Fusion Transformers},
-  journal = {Hydrology and Earth System Sciences},
-  year    = {2026},
+  journal = {xxxx},
+  year    = {xxxx},
   doi     = {XXXX},
 }
 ```
